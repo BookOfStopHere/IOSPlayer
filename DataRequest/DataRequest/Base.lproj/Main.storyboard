@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -17,18 +17,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8Q-uN-nVU">
-                                <rect key="frame" x="16" y="349" width="288" height="115"/>
-                                <color key="backgroundColor" red="0.17530081794330646" green="0.25717126248684447" blue="0.40988026494565222" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTs-ea-ROr">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vTs-ea-ROr">
                                 <rect key="frame" x="136" y="391" width="51" height="31"/>
                                 <connections>
-                                    <action selector="requestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HZf-ah-MvC"/>
+                                    <action selector="switchOnOff:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I79-rR-Avq"/>
+                                    <segue destination="spO-Om-V5b" kind="modal" identifier="player" id="fjx-et-2E6"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-pr-oYy">
+                                <rect key="frame" x="116" y="232" width="88" height="44"/>
+                                <color key="backgroundColor" red="0.34774856929999998" green="1" blue="0.2044974728" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="跳转">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="spO-Om-V5b" kind="modal" id="cez-jo-paZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.37886863440000002" blue="0.21683720000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
+                    <connections>
+                        <outlet property="btn" destination="I5g-pr-oYy" id="Ps4-p4-M4l"/>
+                        <outlet property="sw" destination="vTs-ea-ROr" id="JyR-H2-iSV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="404"/>
+        </scene>
+        <!--Player Container-->
+        <scene sceneID="btr-we-gRh">
+            <objects>
+                <navigationController id="spO-Om-V5b" customClass="SPlayerContainer" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0Y0-7H-OUh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BUg-Ro-TEl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rK2-Rk-ADr" kind="relationship" relationship="rootViewController" id="biP-el-6ms"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naZ-JK-6GO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="-319"/>
+        </scene>
+        <!--播放-->
+        <scene sceneID="9eZ-EZ-BLt">
+            <objects>
+                <viewController id="rK2-Rk-ADr" customClass="SPlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nTP-d6-ObG"/>
+                        <viewControllerLayoutGuide type="bottom" id="mAB-pi-sLe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hGy-Zd-ARq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-tM-LwE">
+                                <rect key="frame" x="87" y="397" width="147" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.5064993005870988" blue="0.30395105932407973" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="半屏"/>
+                                    <segment title="全屏"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zKG-wP-Ydf">
-                                <rect key="frame" x="99" y="305" width="123" height="29"/>
+                                <rect key="frame" x="87" y="308" width="147" height="29"/>
                                 <color key="backgroundColor" red="0.34774856929934184" green="1" blue="0.20449747277314334" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="停止"/>
@@ -36,33 +95,27 @@
                                 </segments>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
-                                    <action selector="switchOnOff:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pq9-8n-q2d"/>
+                                    <action selector="switchOnOff:" destination="rK2-Rk-ADr" eventType="valueChanged" id="H3b-0J-sTb"/>
                                 </connections>
                             </segmentedControl>
-                            <view alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-cu-Hf4" customClass="PlayerView">
-                                <rect key="frame" x="61" y="97" width="199" height="139"/>
+                            <view alpha="0.89999999999999991" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-hM-7P7" customClass="PlayerView">
+                                <rect key="frame" x="11" y="72" width="293" height="167"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.37886863440000002" blue="0.21683720000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.69250450669922314" blue="0.294408036111381" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="xby-Vj-cgK">
-                        <connections>
-                            <outlet property="titleView" destination="vTs-ea-ROr" id="86r-K8-JcG"/>
-                        </connections>
-                    </navigationItem>
-                    <value key="contentSizeForViewInPopover" type="size" width="320" height="568"/>
+                    <navigationItem key="navigationItem" title="播放" id="deV-Yh-7ra"/>
                     <connections>
-                        <outlet property="back" destination="xby-Vj-cgK" id="Ed5-SX-gqL"/>
-                        <outlet property="imgView" destination="C8Q-uN-nVU" id="tlt-9D-WzW"/>
-                        <outlet property="playBtn" destination="zKG-wP-Ydf" id="duQ-cK-1uC"/>
-                        <outlet property="playView" destination="0d7-cu-Hf4" id="k4R-0K-1Hi"/>
-                        <outlet property="playerView" destination="0d7-cu-Hf4" id="7HY-Dv-1Ne"/>
+                        <outlet property="playBtn" destination="zKG-wP-Ydf" id="Lby-PA-2LL"/>
+                        <outlet property="playerView" destination="d8v-hM-7P7" id="ty2-UK-gxc"/>
+                        <outlet property="switchScreen" destination="xfV-tM-LwE" id="9QI-JL-dA5"/>
+                        <outlet property="view" destination="d8v-hM-7P7" id="3JN-aV-7Pd"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEC-Kt-gUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="404"/>
+            <point key="canvasLocation" x="526" y="-328"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -70,4 +123,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="fjx-et-2E6"/>
+    </inferredMetricsTieBreakers>
 </document>
