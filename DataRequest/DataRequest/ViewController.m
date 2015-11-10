@@ -31,6 +31,7 @@
     UISwitch *ss = (UISwitch *)sender;
     if(ss.isOn)
     {
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [self performSegueWithIdentifier:@"player" sender:self];
     }
 }

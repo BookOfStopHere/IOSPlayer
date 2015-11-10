@@ -10,6 +10,7 @@
 		1B6AB76F1B556F0600892E0E /* SPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6AB76E1B556F0600892E0E /* SPlayerViewController.m */; };
 		1B6AB7721B5578DE00892E0E /* SPlayerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6AB7711B5578DE00892E0E /* SPlayerContainer.m */; };
 		1B9C0B1D1B49952700A8C301 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C0B1C1B49952700A8C301 /* PlayerView.m */; };
+		7531FF2D1B5F482B00B79180 /* FullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7531FF2C1B5F482B00B79180 /* FullViewController.m */; };
 		75632CE51B4947D50069CB36 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75632CE41B4947D50069CB36 /* AVFoundation.framework */; };
 		757F3D561B491827005DD9F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 757F3D551B491827005DD9F1 /* main.m */; };
 		757F3D591B491827005DD9F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 757F3D581B491827005DD9F1 /* AppDelegate.m */; };
@@ -38,6 +39,8 @@
 		1B6AB7711B5578DE00892E0E /* SPlayerContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPlayerContainer.m; sourceTree = "<group>"; };
 		1B9C0B1B1B49952700A8C301 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		1B9C0B1C1B49952700A8C301 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		7531FF2B1B5F482B00B79180 /* FullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullViewController.h; sourceTree = "<group>"; };
+		7531FF2C1B5F482B00B79180 /* FullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullViewController.m; sourceTree = "<group>"; };
 		75632CE41B4947D50069CB36 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		757F3D501B491827005DD9F1 /* DataRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		757F3D541B491827005DD9F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 		757F3D471B491827005DD9F1 = {
 			isa = PBXGroup;
 			children = (
+				7531FF2B1B5F482B00B79180 /* FullViewController.h */,
+				7531FF2C1B5F482B00B79180 /* FullViewController.m */,
 				1B6AB7701B5578DE00892E0E /* SPlayerContainer.h */,
 				1B6AB7711B5578DE00892E0E /* SPlayerContainer.m */,
 				1B6AB76D1B556F0600892E0E /* SPlayerViewController.h */,
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				757F3D5C1B491827005DD9F1 /* ViewController.m in Sources */,
+				7531FF2D1B5F482B00B79180 /* FullViewController.m in Sources */,
 				1B6AB7721B5578DE00892E0E /* SPlayerContainer.m in Sources */,
 				1B6AB76F1B556F0600892E0E /* SPlayerViewController.m in Sources */,
 				757F3D591B491827005DD9F1 /* AppDelegate.m in Sources */,

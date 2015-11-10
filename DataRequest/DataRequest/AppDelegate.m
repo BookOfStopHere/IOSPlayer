@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window.bounds = [UIScreen mainScreen].bounds;
+//    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;
 }
 

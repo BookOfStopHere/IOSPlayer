@@ -9,6 +9,7 @@
 #import "SPlayerViewController.h"
 #import "SPlayerViewController+Gesture.h"
 #import <AVFoundation/AVFoundation.h>
+#import "FullViewController.h"
 @interface SPlayerViewController ()
 {
     CGFloat _w;
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) AVPlayer* player;
 @property (nonatomic ,strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
+//
+@property (strong)FullViewController *fullCtrl;
 @end
 
 @implementation SPlayerViewController
@@ -33,6 +36,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleOrotation:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
     // Do any additional setup after loading the view.
 //    [self.view addSubview:self.playerView];
     [self addPanGesture:@selector(handleGesture:)];
@@ -84,10 +91,12 @@
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];// 监听status属性
     
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+    [self.playerView setPlayer: self.player];
+    [self.playerView setVideoFillMode:AVLayerVideoGravityResizeAspect];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    _playerLayer.frame = self.playerView.layer.bounds;
-    _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [self.playerView.layer addSublayer:_playerLayer];
+//    _playerLayer.frame = self.playerView.layer.bounds;
+//    _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+//    [self.playerView.layer addSublayer:_playerLayer];
     //    [self.player setAllowsExternalPlayback:YES];
     //    [self.player play];
 }
@@ -191,5 +200,46 @@
 - (void)handleOrotation:(NSNotification *)notification
 {
 //    if()
+//    return;
+    UIDeviceOrientation ora = [[UIDevice currentDevice] orientation];
+    NSLog(@"转向:%d",ora);
+    if(UIInterfaceOrientationIsLandscape(ora))
+    {
+//        self.view.transform = CGAffineTransformMakeRotation(-M_PI_2);
+//        self.playerView =
+//        self.playerView.transform = CGAffineTransformRotate(self.playerView.transform,-M_PI_2);
+//        [UIView animateWithDuration:0.3 delay:0.0
+//                                    options:UIViewAnimationOptionCurveLinear
+//                                 animations:^{
+//
+//                                     self.playerView.transform = CGAffineTransformIdentity;
+//                                 } completion:nil
+//         ];
+        self.playerView.frame  = self.view.bounds;
+//        self.fullCtrl = nil;
+//        [self.playerView removeFromSuperview];
+//        _fullCtrl = [[FullViewController alloc] init];
+//         [self presentViewController:_fullCtrl animated:NO completion:^{
+//             self.playerView.frame = _fullCtrl.view.bounds;
+//             [_fullCtrl.view addSubview:self.playerView];
+//             _fullCtrl.view.backgroundColor = [UIColor greenColor];
+//         }];
+    }
+    else
+    {
+//        self.playerView
+//        self.playerView.transform = CGAffineTransformMakeRotation(M_PI_2);
+//        [UIView animateWithDuration:0.3/*[[UIApplication sharedApplication] statusBarOrientationAnimationDuration]*/
+//                         animations:^{
+//                            self.playerView.transform  = CGAffineTransformIdentity;
+//                         }
+//                         completion:^(BOOL finished) {
+//                             
+//                         }];
+//        [self dismissViewControllerAnimated:NO completion:nil];
+//        [self.playerView removeFromSuperview];
+        self.playerView.frame = CGRectMake(0, 60, 375, 180);
+//        [self.view addSubview:self.playerView];
+    }
 }
 @end

@@ -98,8 +98,8 @@
                                     <action selector="switchOnOff:" destination="rK2-Rk-ADr" eventType="valueChanged" id="H3b-0J-sTb"/>
                                 </connections>
                             </segmentedControl>
-                            <view alpha="0.89999999999999991" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-hM-7P7" customClass="PlayerView">
-                                <rect key="frame" x="11" y="72" width="293" height="167"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-hM-7P7" customClass="PlayerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="167"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
